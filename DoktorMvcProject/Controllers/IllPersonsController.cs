@@ -88,7 +88,7 @@ namespace DoktorMvcProject.Controllers
             var doctors = db.Doctors.Select(e => new SelectListItem()//selectlist ile doctorları çektik ve listeledik.
             {
                 Value = e.Id.ToString(),
-                Text=e.Name
+                Text=e.Name + e.Surname
             }).ToList();
             IllPerson ıllPerson = ıllPersonService.GetById(id.Value);
             List<int> _doctorIds = ıllPerson.Doctor_IllPersons.Select(e => e.DoctorId).ToList();//birden fazla doctoru seçebilmek için multiselectlist yapısı oluşturuldu.
