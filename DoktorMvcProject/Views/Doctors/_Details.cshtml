@@ -1,0 +1,29 @@
+﻿@model DoktorMvcProject.Entities.Doctor
+
+@{
+
+
+    var doctorFullNames = Model.Name + " " + Model.Surname;
+
+}
+
+@*<div class="row">
+    <div class="col-md-2">
+        <b>Title :</b>
+</div>
+    <div class="col-md-10">
+        @Html.DisplayFor(model=>model.Doctor.Title.Title) 
+</div>
+    </div>*@
+
+
+@Html.DisplayForModel()
+<div class="row">
+    <div class="col-md-2">
+        <b>@Html.Label("Doctors", "Doctors:")</b>
+    </div>
+    <div class="col-md-10">
+        @doctorFullNames
+    </div>
+</div>
+

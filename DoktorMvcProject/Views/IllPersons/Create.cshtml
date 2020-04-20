@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Add IllPerson";
+    var doctors = (MultiSelectList)ViewData["doctors"];
+}
+
+<p style="color:darkgreen; margin-top:10px; font-size:large;" >@ViewBag.Message</p>
+<hr />
+
+<h2 style="color:darkred;">@ViewBag.Title</h2>
+
+<hr />
+
+<form action="~/IllPersons/Create" method="post">
+    <div class="form-group">
+        <label for="tbName">Name</label>
+        <input type="text" class="form-control" id="tbName" name="Name" />
+    </div>
+
+    <div class="form-group">
+        <label for="tbSurname">Surname</label>
+        <input type="text" class="form-control" id="tbSurname" name="Surname" />
+    </div>
+
+    <div class="form-group">
+        <label for="ddlDoctors">Doctors</label>
+        <select id="ddlDoctors" class="form-control" name="Doctors" multiple>
+            @foreach (var doctor in doctors)
+            {
+                <option value="@doctor.Value">@doctor.Text</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="tbPhone">Phone</label>
+        <input type="text" class="form-control" id="tbPhone" name="Phone" />
+    </div>
+
+    <div class="form-group">
+        <label for="tbEmail">Email</label>
+        <input type="text" class="form-control" id="tbEmail" name="Email" />
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+            &nbsp;
+            <button type="reset" class="btn btn-info">Clear</button>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

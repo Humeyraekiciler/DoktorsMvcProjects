@@ -1,0 +1,12 @@
+﻿@model DoktorMvcProject.Entities.Doctor
+@{
+    ViewBag.Title = "Doctor Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.Partial("_Details", Model)
+
+<br />
+@Html.ActionLink("Back To Doctors", "Index")
+

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DoktorMvcProject.Entities.Titles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Html.RenderAction("Welcome");
+}
+<h2 style="color:darkgreen; font-family:'Times New Roman', Times, serif;">Titles</h2>
+<hr />
+<p>
+    @Html.ActionLink("Add New Title", "Create")
+</p>
+<br />
+<span style="color:darkviolet;">@Model.Count() records found</span>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

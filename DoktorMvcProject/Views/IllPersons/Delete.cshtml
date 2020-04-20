@@ -1,0 +1,66 @@
+﻿@model DoktorMvcProject.Entities.IllPerson
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3 style="color:red;">Are you sure you want to delete this?</h3>
+<br />
+<label class="text-success">@TempData["Info"]</label>
+<div>
+    <h4>IllPerson</h4>
+    <hr />
+    <dl class="dl-horizontal" style="margin-left:-100px;">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+            <label>:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+            <label>:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+            <label>:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+            <label>:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Yes" class="btn btn-success" /> 
+        @Html.ActionLink("No", "Index", null, htmlAttributes: new { @class = "btn btn-danger" })
+        <br />
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    }
+</div>

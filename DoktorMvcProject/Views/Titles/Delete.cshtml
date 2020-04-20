@@ -1,0 +1,33 @@
+﻿@model DoktorMvcProject.Entities.Titles
+
+@{
+    ViewBag.Title = "Delete IllPerson";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="font-size:18px; margin-left:-55px;">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+            <label>:</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Titles", FormMethod.Post))
+    {
+
+        @Html.HiddenFor(e => e.Id)
+        <input type="submit" value="Yes" class="btn btn-success" />
+        @:&nbsp;
+        @Html.ActionLink("No", "Index", null, htmlAttributes: new { @class = "btn btn-danger" })
+     
+    }
+</div>

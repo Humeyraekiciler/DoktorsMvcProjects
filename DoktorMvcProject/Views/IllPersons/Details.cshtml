@@ -1,0 +1,69 @@
+﻿@model DoktorMvcProject.Entities.IllPerson
+
+@{
+    ViewBag.Title = "IllPersons Details";
+    var doctor_IllPersons = Model.Doctor_IllPersons;
+    var doctorFullNames = "";
+    foreach(var doctor_IllPerson in doctor_IllPersons)
+    {
+        doctorFullNames += doctor_IllPerson.Doctor.Name + doctor_IllPerson.Doctor.Surname + ", ";
+    }
+    doctorFullNames = doctorFullNames.Trim(',', ' ');
+}
+
+<h2>@ViewBag.Title</h2>
+<div>
+
+    <h4 style="color:maroon">IllPerson</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+            <b>@Html.DisplayNameFor(model => model.Name)</b>
+            <label><b>:</b></label>
+        </div>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2" style="margin-left:-2px;">
+            <b>@Html.DisplayNameFor(model => model.Surname)</b>
+            <label><b>:</b></label>
+        </div>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Surname)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <b>@Html.DisplayNameFor(moel => Model.Phone)</b>
+            <label><b>:</b></label>
+        </div>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Phone)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <b>@Html.DisplayNameFor(model => model.Email)</b>
+            <label><b>:</b></label>
+        </div>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <b>@Html.Label("Doctors", "Doctors:")</b>
+        </div>
+        <div class="col-md-10">
+            @doctorFullNames
+        </div>
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
